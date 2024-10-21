@@ -1,0 +1,51 @@
+npm install @clerk/nextjs
+npx create-next-app@latest
+npx shadcn-ui@latest init
+npm i usehooks-ts
+npx shadcn-ui@latest add skeleton
+npx shadcn-ui@latest add accordion
+npx shadcn-ui@latest add separator
+npm i zustand
+npx shadcn-ui@latest add sheet
+npm i -D prisma
+
+---
+npx prisma init
+npx prism generate
+npx prisma db push
+npx prisma studio
+
+npm i zod
+npm i @prisma/client
+npx shadcn-ui@latest add input 
+npx shadcn-ui@latest add label
+npx shadcn-ui@latest add tooltip
+npx shadcn-ui@latest add popover
+npm i sonner
+npm i unsplash-js
+
+-----(for reset database) npx prisma migrate reset (incase)
+
+npx prisma db push
+npx prisma generate
+npm i lodash
+npm i -D @types/lodash
+npx shadcn-ui@latest add textarea
+npm i @hello-pangea/dnd
+npx shadcn-ui@latest add dialog
+npm i @tanstack/react-query
+npx shadcn-ui@latest add avatar
+npm i date-fns
+npm i stripe
+
+_________________
+
+git init
+git add .
+git remote add origin https://github.com/reyvin1058/next14-task-mo.git
+git branch -M main
+git push -u origin main
+
+
+npm install next-themes
+npm install @radix-ui/react-dropdown-menu
