@@ -1,7 +1,6 @@
 import { AuditLog } from "@prisma/client";
 import { generateLogMessage } from "@/lib/generate-log-message";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import formatTime from "@/constants/format-time";
 
 interface ActivityItemProps {
   data: AuditLog;
@@ -21,11 +20,26 @@ export const ActivityItem = ({ data }: ActivityItemProps) => {
           {generateLogMessage(data)}
         </p>
         <p className="text-xs text-muted-foreground">
-          {formatTime(new Date(data.createdAt), 0)}
+          {formatTime(new Date(data.createdAt))} 
         </p>
       </div>
     </li>
   );
 };
 
+export default function formatTime(dateInput: Date) {
+  const date = new Date(dateInput);
+  const localDate = new Date(date.toLocaleString("en-US", { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone }));
 
+  const dayOfMonth = localDate.getDate();
+  const month = localDate.toLocaleString("en", { month: "short" });
+  const year = localDate.getFullYear();
+  let hours = localDate.getHours();
+  const minutes = localDate.getMinutes();
+  const ampm = hours >= 12 ? "pm" : "am";
+  hours = hours % 12;
+  hours = hours ? hours : 12; 
+  const minutesStr = minutes < 10 ? '0' + minutes : minutes;
+
+  return `${month} ${dayOfMonth}, ${year} at ${hours}:${minutesStr} ${ampm}`;
+}
