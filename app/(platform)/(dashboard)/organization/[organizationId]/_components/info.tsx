@@ -6,8 +6,6 @@ import Image  from "next/image";
 
 export const Info = () => {
     const { organization, isLoaded } = useOrganization();
-
-
     if (!isLoaded) {
         return (
             <Info.Skeleton />

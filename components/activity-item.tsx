@@ -1,4 +1,5 @@
 import { format } from "date-fns";
+import { toZonedTime } from "date-fns-tz"; 
 import { AuditLog } from "@prisma/client";
 import { generateLogMessage } from "@/lib/generate-log-message";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
@@ -8,6 +9,9 @@ interface ActivityItemProps {
 }
 
 export const ActivityItem = ({ data }: ActivityItemProps) => {
+  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const zonedDate = toZonedTime(new Date(data.createdAt), timeZone);
+
   return (
     <li className="flex items-center gap-x-2">
       <Avatar className="h-8 w-8">
@@ -21,7 +25,7 @@ export const ActivityItem = ({ data }: ActivityItemProps) => {
           {generateLogMessage(data)}
         </p>
         <p className="text-xs text-muted-foreground">
-          {format(new Date(data.createdAt), "MMM d, yyyy 'at' h:mm a")}
+          {format(zonedDate, "MMM d, yyyy 'at' h:mm a")}
         </p>
       </div>
     </li>
