@@ -29,7 +29,7 @@ export const ActivityItem = ({ data }: ActivityItemProps) => {
 
 export default function formatTime(dateInput: Date) {
   const date = new Date(dateInput);
-  const localDate = new Date(date.toLocaleString("en-US", { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone }));
+  const localDate = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
 
   const dayOfMonth = localDate.getDate();
   const month = localDate.toLocaleString("en", { month: "short" });
