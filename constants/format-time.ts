@@ -1,4 +1,4 @@
-export default function formatTime(dateInput: Date) {
+export default function formatTime(dateInput: Date, _timeZoneOffset: number) {
   const date = new Date(dateInput);
   const dayOfMonth = date.getDate();
   const month = date.toLocaleString("en", { month: "short" });
