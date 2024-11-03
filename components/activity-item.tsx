@@ -9,7 +9,13 @@ interface ActivityItemProps {
 }
 
 export const ActivityItem = ({ data }: ActivityItemProps) => {
+  // Get the user's local timezone
   const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+  // Log the original createdAt date for debugging
+  console.log("Original createdAt:", data.createdAt);
+
+  // Convert the createdAt date from UTC to the user's local timezone
   const zonedDate = toZonedTime(new Date(data.createdAt), timeZone);
 
   return (
