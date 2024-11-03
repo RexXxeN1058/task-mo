@@ -110,7 +110,7 @@ export const CardItem = ({
                 )}
               >
                 <Clock11 className="w-4 h-4" />
-                <p className="ml-1">{formatTime(card.createdAt)}</p>
+                <p className="ml-1">{formatTime(card.createdAt, 0)}</p>
               </div>
             </div>
 
