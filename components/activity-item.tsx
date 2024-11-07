@@ -10,8 +10,7 @@ interface ActivityItemProps {
 
 export const ActivityItem = ({ data }: ActivityItemProps) => {
   const date = new Date(data.createdAt);
-  const zonedDate = toZonedTime(date, 'Asia/Manila'); // Replace 'Asia/Manila' with your desired time zone
-
+  const zonedDate = toZonedTime(date, 'Asia/Manila'); 
   return (
     <li className="flex items-center gap-x-2">
       <Avatar className="h-8 w-8">
